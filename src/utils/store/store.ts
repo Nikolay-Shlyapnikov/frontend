@@ -1,12 +1,14 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import { userSlice } from '../../features/user/userSlice'
 import { searchSlice } from '../../features/search/store/searchSlice'
+import { mangaSlice } from '../../features/manga/store/store'
 
 export const setupStore = () => {
   return configureStore({
     reducer: combineReducers({
       user: userSlice.reducer,
       search: searchSlice.reducer,
+      manga: mangaSlice.reducer,
     }),
     middleware: (getDefaultMiddleware) => [
       ...getDefaultMiddleware({

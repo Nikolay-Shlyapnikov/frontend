@@ -1,7 +1,14 @@
-export type Manga = {
-    id: string
-    name: string
-    description: string
-    'created-at': string
-    'page-list': string[]
+export interface SearchManga {
+  id: string
+  name: string
+  description: string
+  preview_id: string
 }
+
+export interface Manga extends SearchManga {
+  page_list: string[]
+  created_at: string
+  preview_src: string
+}
+
+export type MangaSlice = Manga
