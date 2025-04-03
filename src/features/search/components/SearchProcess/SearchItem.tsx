@@ -16,7 +16,7 @@ export const SearchItem: React.FC<SearchItemProps> = ({
       <Default />
     ) : (
       <img
-        src={`${PHOTO_URL}/manga?id=${preview_id}`}
+        src={`${PHOTO_URL}/manga?page_id=${preview_id}&manga_id=${id}`}
         alt="Описание изображения"
         className={styles.searchPreview}
       />
