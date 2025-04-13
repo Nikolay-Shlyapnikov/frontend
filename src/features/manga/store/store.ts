@@ -2,13 +2,14 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { MangaSlice } from './types'
 
 const initialState: MangaSlice = {
-  id: '1',
-  name: 'One Piece',
-  description: 'Охота за сокровищем',
-  preview_id: '1',
-  page_list: ['1', '2', '3', '4', '5', '6', '7', '8', '9'],
+  id: '',
+  name: '',
+  description: '',
+  preview_id: '',
+  page_list: [''],
   created_at: new Date().toISOString(),
   preview_src: '',
+  isLoading: false,
 }
 
 export const mangaSlice = createSlice({
