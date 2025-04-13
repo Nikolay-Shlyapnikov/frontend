@@ -54,7 +54,7 @@ export const Manga = () => {
         </h1>
         <p className={styles.mangaDescription}>Описание: {manga.description}</p>
         <div>
-          {manga.page_list.map((page, index) => (
+          {manga.page_list.map((page: string, index: number) => (
             <ImageWithLoader
               key={page}
               src={`${PHOTO_URL}/manga?page_id=${page}&manga_id=${id}`}
