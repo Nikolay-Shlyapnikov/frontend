@@ -12,4 +12,13 @@ export interface Manga extends SearchManga {
   isLoading: boolean
 }
 
-export type MangaSlice = Manga
+export type MangaSlice = Manga & {
+  uploadManga: {
+    photos: UploadMangaPhoto[]
+  }
+}
+
+export type UploadMangaPhoto = {
+  fileName: string
+  fileUrl: string
+}

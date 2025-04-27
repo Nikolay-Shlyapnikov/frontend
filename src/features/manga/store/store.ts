@@ -10,6 +10,9 @@ const initialState: MangaSlice = {
   created_at: new Date().toISOString(),
   preview_src: '',
   isLoading: false,
+  uploadManga: {
+    photos: [],
+  },
 }
 
 export const mangaSlice = createSlice({
