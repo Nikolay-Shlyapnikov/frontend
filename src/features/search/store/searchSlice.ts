@@ -3,6 +3,9 @@ import { SearchSlice } from './types'
 
 const initialState: SearchSlice = {
   mangas: [],
+  filters: {
+    liked: false,
+  },
 }
 
 export const searchSlice = createSlice({

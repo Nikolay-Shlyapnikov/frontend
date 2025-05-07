@@ -15,11 +15,14 @@ export const SearchItem: React.FC<SearchItemProps> = ({
   name,
   description,
   preview_id,
+  liked,
 }) => {
   const navigate = useNavigate()
   const dispatch = useAppDispatch()
   const handleClickManga = () => {
-    dispatch(mangaSlice.actions.setManga({ id, name, description, preview_id }))
+    dispatch(
+      mangaSlice.actions.setManga({ id, name, description, preview_id, liked })
+    )
     navigate(`/manga/${id}`)
   }
   return (
