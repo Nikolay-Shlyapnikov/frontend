@@ -3,6 +3,7 @@ export interface SearchManga {
   name: string
   description: string
   preview_id: string
+  liked: boolean
 }
 
 export interface Manga extends SearchManga {
@@ -21,4 +22,8 @@ export type MangaSlice = Manga & {
 export type UploadMangaPhoto = {
   fileName: string
   fileUrl: string
+}
+
+export interface SearchListProps {
+  liked: boolean
 }

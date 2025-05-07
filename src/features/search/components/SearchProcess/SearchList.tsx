@@ -14,14 +14,15 @@ export const SearchList = () => {
   const mangas = useAppSelector((state) => state.search.mangas)
   const dispatch = useAppDispatch()
   const token = useAppSelector((state) => state.user.token)
-
+  const filters = useAppSelector((state) => state.search.filters)
+  console.log(filters)
   useEffect(() => {
     if (mangas.length === 0) {
       fetch(
         'post',
         `${ADDRESS_URL}/search`,
         {
-          params: { limit: 10, offset: 0 },
+          params: { limit: 15, offset: 0, liked: filters.liked },
           headers: {
             token,
           },
@@ -39,20 +40,23 @@ export const SearchList = () => {
         }
       )
     }
-  }, [])
+  }, [filters])
   return (
     <div className={styles.searchList}>
-      {mangas.map(({ id, name, description, preview_id }: SearchManga) => {
-        return (
-          <SearchItem
-            key={id}
-            id={id}
-            name={name}
-            description={description}
-            preview_id={preview_id}
-          />
-        )
-      })}
+      {mangas.map(
+        ({ id, name, description, preview_id, liked }: SearchManga) => {
+          return (
+            <SearchItem
+              key={id}
+              id={id}
+              name={name}
+              description={description}
+              preview_id={preview_id}
+              liked={liked}
+            />
+          )
+        }
+      )}
     </div>
   )
 }

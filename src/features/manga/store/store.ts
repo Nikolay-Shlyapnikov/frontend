@@ -13,6 +13,7 @@ const initialState: MangaSlice = {
   uploadManga: {
     photos: [],
   },
+  liked: false,
 }
 
 export const mangaSlice = createSlice({
