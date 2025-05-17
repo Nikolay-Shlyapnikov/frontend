@@ -1,29 +1,29 @@
 export interface SearchManga {
-  id: string
-  name: string
-  description: string
-  preview_id: string
-  liked: boolean
+	id: string
+	name: string
+	description: string
+	preview_id: string
+	liked: boolean
 }
 
 export interface Manga extends SearchManga {
-  page_list: string[]
-  created_at: string
-  preview_src: string
-  isLoading: boolean
+	page_list: string[]
+	created_at: string
+	preview_src: string
+	isLoading: boolean
 }
 
 export type MangaSlice = Manga & {
-  uploadManga: {
-    photos: UploadMangaPhoto[]
-  }
+	uploadManga: {
+		photos: UploadMangaPhoto[]
+	}
 }
 
 export type UploadMangaPhoto = {
-  fileName: string
-  fileUrl: string
+	fileName: string
+	fileUrl: string
 }
 
 export interface SearchListProps {
-  liked: boolean
+	liked: boolean
 }

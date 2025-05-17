@@ -12,49 +12,46 @@ import { SearchList } from '../features/search/components/SearchProcess/SearchLi
 import { setSearch } from '../features/search/store/searchSlice'
 
 export const ProfilePage = () => {
-  const profileMode = useAppSelector((state) => state.user.profileMode)
-  const dispatch = useAppDispatch()
+	const profileMode = useAppSelector((state) => state.user.profileMode)
+	const dispatch = useAppDispatch()
 
-  console.log(profileMode)
-  useEffect(() => {
-    if (profileMode === PROFILE_MODES.LIKES) {
-      dispatch(
-        setSearch({
-          mangas: [],
-          filters: {
-            liked: true,
-          },
-        })
-      )
-    }
-  }, [profileMode, dispatch])
+	console.log(profileMode)
+	useEffect(() => {
+		if (profileMode === PROFILE_MODES.LIKES) {
+			dispatch(
+				setSearch({
+					mangas: [],
+					filters: {
+						liked: true,
+					},
+				}),
+			)
+		}
+	}, [profileMode, dispatch])
 
-  return (
-    <Page>
-      <div className={clsx(styles.profileWrapper, styles.headerWrapper)}>
-        <ProfileHeader />
-        <ProfileTabSet />
-      </div>
-      {profileMode === PROFILE_MODES.UPLOAD_MANGA && (
-        <React.Fragment>
-          <h1 className={styles.profileWrapperTitle}>
-            Здесь вы можете создать новую мангу или добавить главы к
-            существующей
-          </h1>
-          <div className={clsx(styles.profileWrapper)}>
-            <UploadForm />
-            <PhotoList />
-          </div>
-        </React.Fragment>
-      )}
-      {profileMode === PROFILE_MODES.LIKES && (
-        <React.Fragment>
-          <h1 className={styles.profileWrapperTitle}>
-            Понравившиеся Вам манги:
-          </h1>
-          <SearchList />
-        </React.Fragment>
-      )}
-    </Page>
-  )
+	return (
+		<Page>
+			<div className={clsx(styles.profileWrapper, styles.headerWrapper)}>
+				<ProfileHeader />
+				<ProfileTabSet />
+			</div>
+			{profileMode === PROFILE_MODES.UPLOAD_MANGA && (
+				<React.Fragment>
+					<h1 className={styles.profileWrapperTitle}>
+						Здесь вы можете создать новую мангу или добавить главы к существующей
+					</h1>
+					<div className={clsx(styles.profileWrapper)}>
+						<UploadForm />
+						<PhotoList />
+					</div>
+				</React.Fragment>
+			)}
+			{profileMode === PROFILE_MODES.LIKES && (
+				<React.Fragment>
+					<h1 className={styles.profileWrapperTitle}>Понравившиеся Вам манги:</h1>
+					<SearchList />
+				</React.Fragment>
+			)}
+		</Page>
+	)
 }

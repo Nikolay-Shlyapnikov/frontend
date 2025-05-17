@@ -11,34 +11,32 @@ import { ImageWithLoader } from '../../../../ui-lib/ImageWithLoader/ui/ImageWith
 export type SearchItemProps = SearchManga
 
 export const SearchItem: React.FC<SearchItemProps> = ({
-  id,
-  name,
-  description,
-  preview_id,
-  liked,
+	id,
+	name,
+	description,
+	preview_id,
+	liked,
 }) => {
-  const navigate = useNavigate()
-  const dispatch = useAppDispatch()
-  const handleClickManga = () => {
-    dispatch(
-      mangaSlice.actions.setManga({ id, name, description, preview_id, liked })
-    )
-    navigate(`/manga/${id}`)
-  }
-  return (
-    <div className={styles.searchItem} onClick={handleClickManga}>
-      {preview_id === null ? (
-        <Default />
-      ) : (
-        <ImageWithLoader
-          src={`${PHOTO_URL}/manga?page_id=${preview_id}&manga_id=${id}`}
-          alt="Описание изображения"
-          className={styles.searchPreview}
-        />
-      )}
-      <p>Идентификатор: {id}</p>
-      <p>Название: {name}</p>
-      <p>Описание: {description}</p>
-    </div>
-  )
+	const navigate = useNavigate()
+	const dispatch = useAppDispatch()
+	const handleClickManga = () => {
+		dispatch(mangaSlice.actions.setManga({ id, name, description, preview_id, liked }))
+		navigate(`/manga/${id}`)
+	}
+	return (
+		<div className={styles.searchItem} onClick={handleClickManga}>
+			{preview_id === null ? (
+				<Default />
+			) : (
+				<ImageWithLoader
+					src={`${PHOTO_URL}/manga?page_id=${preview_id}&manga_id=${id}`}
+					alt='Описание изображения'
+					className={styles.searchPreview}
+				/>
+			)}
+			<p>Идентификатор: {id}</p>
+			<p>Название: {name}</p>
+			<p>Описание: {description}</p>
+		</div>
+	)
 }
